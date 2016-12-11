@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\Assert.h" />
+    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\Color.h" />
+    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\Dificil.h" />
+    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\Facil.h" />
+    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\GameEngine.h" />
+    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\Grid.h" />
+    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\ID.h" />
+    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\InputManager.h" />
+    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\IOManager.h" />
+    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\LevelScene.h" />
+    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\Logger.h" />
+    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\MainMenu.h" />
+    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\Medio.h" />
+    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\Renderer.h" />
+    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\Resource.h" />
+    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\Scene.h" />
+    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\SceneManager.h" />
+    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\Snake.h" />
+    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\Sprites.h" />
+    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\TimeManager.h" />
+    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\Transform.h" />
+    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\Window.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\Dificil.cpp" />
+    <ClCompile Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\Facil.cpp" />
+    <ClCompile Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\Grid.cpp" />
+    <ClCompile Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\LevelScene.cpp" />
+    <ClCompile Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\main.cpp" />
+    <ClCompile Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\MainMenu.cpp" />
+    <ClCompile Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\Medio.cpp" />
+    <ClCompile Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\Snake.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\XMLFile.xml" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A425A1CB-F148-4A71-BBCF-EB283D235BC4}</ProjectGuid>
+    <RootNamespace>Game_Project</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\dep\config.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\dep\config.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\dep\config.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\dep\config.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
