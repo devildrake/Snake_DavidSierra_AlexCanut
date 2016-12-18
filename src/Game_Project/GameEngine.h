@@ -2,15 +2,12 @@
 #pragma region GAME_SCENES
 #include "MainMenu.h"
 #include "LevelScene.h"
-#include "Facil.h"
-#include "Medio.h"
-#include "Dificil.h"
 #include "ID.h"
 #include "SceneManager.h"
 #include "InputManager.h"
 #include "Renderer.h"
 #include "TimeManager.h"
-
+#include "GameScene.h"
 #pragma endregion TODO
 
 //! Initializes game needs and controls the game loop
@@ -33,9 +30,8 @@ namespace GameEngine {
 		//Se añaden todas las escenas
 		SM.AddScene<MainMenu>(); 
 		SM.AddScene<LevelScene>();
-		SM.AddScene<Facil>();
-		SM.AddScene<Medio>();
-		SM.AddScene<Dificil>();
+		SM.AddScene<GameScene>();
+
 
 		//Se establece cual es la primera
 		SM.SetCurScene <MainMenu> ();

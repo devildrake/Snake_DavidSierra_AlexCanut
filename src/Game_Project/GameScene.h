@@ -1,20 +1,23 @@
 #pragma once
 #include "Scene.h"
+#include "Snake.h"
 #include "Sprites.h"
 #include <fstream>
 #include <stdio.h>
 #include <strstream>
 #include <XML/rapidxml_utils.hpp>
 
-class Facil : public Scene
+class GameScene : public Scene
 {
 public:
-	explicit Facil();
-	~Facil() override;
+	explicit GameScene();
+	~GameScene() override;
 	void OnEntry(void) override;
 	void OnExit(void) override;
 	void Update(void) override;
 	void Draw(void) override;
+	void NewFruit();
+
 	void XML(std::string &&filename) {
 
 		rapidxml::file<> xmlFile(RESOURCE_FILE(filename));
@@ -25,8 +28,14 @@ public:
 	}
 
 private:
+	int numC;
+	int numR;
+	Sprite **tabla;
 	Sprite fondo;
-//	Grid g_facil;
 	Sprite manzana;
 	Sprite pared;
+	Snake snake;
+	Sprite cabeza;
+	Sprite cuerpo;
+	Sprite cola;
 };

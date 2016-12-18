@@ -9,6 +9,7 @@
 #include "Resource.h"
 #include <XML/rapidxml_utils.hpp>
 using namespace Logger;
+using namespace rapidxml;
 
 namespace IOManager {
 

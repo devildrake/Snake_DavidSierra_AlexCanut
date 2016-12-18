@@ -3,20 +3,21 @@
 #include <vector>
 #include "Sprites.h"
 using namespace std;
-class Snake : public Scene
+class Snake
 {
+
 public:
-	explicit Snake();
-	~Snake() override;
-	void Draw(void) override;
-	void OnEntry(void) override;
-	void OnExit(void) override;
-	void Update(void) override;
+	Snake();
+	~Snake();
+	void Draw(void);
+	void Update(void);
+	void Move(int dir);
+	void changeDir();
+	vector<pair<int, int>> coord;
 
 private:
 
-	vector<Sprite> cachoSerp;
-
+	int dir;
 	int vel;
 
 };

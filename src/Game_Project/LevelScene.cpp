@@ -1,12 +1,10 @@
 #include "LevelScene.h"
-#include "Facil.h"
-#include "Medio.h"
-#include "Dificil.h"
 #include "ID.h"
 #include "InputManager.h"
 #include "Logger.h"
 #include "SceneManager.h"
 #include <XML/rapidxml_utils.hpp>
+#include "GameScene.h"
 using namespace Logger;
 
 //esta clase es el nivel de seleccion de dificultad
@@ -29,13 +27,13 @@ void LevelScene::Update(void) {
 	if (IM.IsMouseDown<MOUSE_BUTTON_LEFT>()) {
 		mouseCoords = IM.GetMouseCoords();
 		if ((mouseCoords.x >= 450 && mouseCoords.x <= 590) && (mouseCoords.y >= 360 && mouseCoords.y <= 400)) {
-			SM.SetCurScene<Facil>(); 
+			SM.SetCurScene<GameScene>(); 
 		}
 		else if ((mouseCoords.x >= 450 && mouseCoords.x <= 590) && (mouseCoords.y >= 460 && mouseCoords.y <= 500)) {
-			SM.SetCurScene<Medio>();
+			SM.SetCurScene<GameScene>();
 		}
 		else if ((mouseCoords.x >= 450 && mouseCoords.x <= 590) && (mouseCoords.y >= 560 && mouseCoords.y <= 600)) {
-			SM.SetCurScene<Dificil>();
+			SM.SetCurScene<GameScene>();
 		}
 	}
 }

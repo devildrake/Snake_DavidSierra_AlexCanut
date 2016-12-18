@@ -27,6 +27,7 @@ public:
 		ASSERT((m_curScene = GetScene<S>()) != nullptr);//se asegura que la escena actual no es null, es decir que exista alguna escena despues de cambiarla
 		m_curScene->SetState<SceneState::RUNNING>();//cambia el estado de la escena a RUNNING
 		m_curScene->OnEntry(); //entra en la escena
+		
 	}
 	inline Scene *&GetCurScene(void) { return m_curScene; }//Funcion que devuelve la escena actualmente en estado RUNNING
 private:
