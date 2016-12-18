@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<gameScene>
+  <scene id="easy">
+    <general_attributes
+      v="v += score/g"
+      g="10000"
+      life="3"
+      score="q*100">
+    </general_attributes>
+    <specific_attributes
+      grid="5r*5c"
+      timeLvl="4t"
+      v="z"
+      food="x"
+      incFood="y">
+    </specific_attributes>
+  </scene>
+  
+  <scene id="medium">
+    <general_attributes
+      v="v += score/g"
+      g="10000"
+      life="3"
+      score="q*100">
+    </general_attributes>
+    <specific_attributes
+      grid="2r*2c"
+      timeLvl="2t"
+      v="2z"
+      food="2x"
+      incFood="2y">
+    </specific_attributes>
+  </scene>
+  
+  <scene id="hard">
+    <general_attributes
+      v="v += score/g"
+      g="10000"
+      life="3"
+      score="q*100">
+    </general_attributes>
+    <specific_attributes
+      grid="r*c"
+      timeLvl="t"
+      v="3z"
+      food="3x"
+      incFood="4y">
+    </specific_attributes>
+  </scene>
+</gameScene>

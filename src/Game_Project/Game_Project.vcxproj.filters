@@ -15,100 +15,100 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\Assert.h">
+    <ClInclude Include="Assert.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\Color.h">
+    <ClInclude Include="Color.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\Dificil.h">
+    <ClInclude Include="Dificil.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\Facil.h">
+    <ClInclude Include="Facil.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\GameEngine.h">
+    <ClInclude Include="GameEngine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\Grid.h">
+    <ClInclude Include="Grid.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\ID.h">
+    <ClInclude Include="ID.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\InputManager.h">
+    <ClInclude Include="InputManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\IOManager.h">
+    <ClInclude Include="IOManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\LevelScene.h">
+    <ClInclude Include="LevelScene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\Logger.h">
+    <ClInclude Include="Logger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\MainMenu.h">
+    <ClInclude Include="MainMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\Medio.h">
+    <ClInclude Include="Medio.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\Renderer.h">
+    <ClInclude Include="Renderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\Resource.h">
+    <ClInclude Include="Resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\Scene.h">
+    <ClInclude Include="Scene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\SceneManager.h">
+    <ClInclude Include="SceneManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\Snake.h">
+    <ClInclude Include="Snake.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\Sprites.h">
+    <ClInclude Include="Sprites.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\TimeManager.h">
+    <ClInclude Include="TimeManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\Transform.h">
+    <ClInclude Include="Transform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\Window.h">
+    <ClInclude Include="Window.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\Dificil.cpp">
+    <ClCompile Include="Dificil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\Facil.cpp">
+    <ClCompile Include="Facil.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\Grid.cpp">
+    <ClCompile Include="Grid.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\LevelScene.cpp">
+    <ClCompile Include="LevelScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\main.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\MainMenu.cpp">
+    <ClCompile Include="MainMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\Medio.cpp">
+    <ClCompile Include="Medio.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\Snake.cpp">
+    <ClCompile Include="Snake.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="..\..\..\..\..\Desktop\Snake2.0-20161211T185152Z\Snake2.0\src\Snake_AnnaPonce_JoanLopez\XMLFile.xml" />
+    <Xml Include="XMLFile.xml" />
   </ItemGroup>
 </Project>
