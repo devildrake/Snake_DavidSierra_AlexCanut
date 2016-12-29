@@ -9,11 +9,11 @@
 #include "Resource.h"
 #include <XML/rapidxml_utils.hpp>
 using namespace Logger;
-using namespace rapidxml;
+//esta clase del Jordi seguramente la eliminaremos mas adelante 
 
 namespace IOManager {
 
-	// Base test function for XML purposes (TODO)
+	/*// Base test function for XML purposes (TODO)
 	void TestXML(std::string &&filename) {
 	rapidxml::file<> xmlFile(RESOURCE_FILE(filename));
 	rapidxml::xml_document<> doc;
@@ -25,7 +25,7 @@ namespace IOManager {
 	" - ",
 	node->first_attribute("att2")->value());
 	}
-	}
+	}*/
 
 	// Loader function that takes level info for a grid
 	std::vector<std::vector<ObjectID>> LoadLevel(std::string &&filename, int &rows, int &cols) {

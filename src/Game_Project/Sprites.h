@@ -7,5 +7,5 @@
 struct Sprite {
 	Transform transform;
 	ObjectID objectID;
-	void Draw() { R.Push(objectID, transform); };
+	void Draw() { R.Push(objectID, transform); }; //metodo q añade a Renderer los parametros declarados
 };

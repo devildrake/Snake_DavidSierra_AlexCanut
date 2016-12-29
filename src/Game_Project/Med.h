@@ -2,21 +2,20 @@
 #include "Scene.h"
 #include "Sprites.h"
 
-class LevelScene : public Scene
+class Med : public Scene
 {
-public:
-	explicit LevelScene();
-	~LevelScene() override;
+public: //declaracion de cabeceras
+	explicit Med();
+	~Med() override;
 	void OnEntry(void) override;
 	void OnExit(void) override;
 	void Update(void) override;
 	void Draw(void) override;
 private:
-	Sprite background;
-	Sprite title;
-	Sprite easy;
-	Sprite med;
-	Sprite hard;
-
+	Sprite fondo;
+	Sprite cap;
+	Sprite cua;
+	Sprite apple;
+	Sprite pared;
 
 };

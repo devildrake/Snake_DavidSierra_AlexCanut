@@ -4,6 +4,7 @@
 #include "Assert.h"
 
 #define W Window::Instance()
+//clasehecha por Jordi que crea una ventana donde se vera el juego.
 
 // Window class to store the whole info related to the game screen interface
 class Window {

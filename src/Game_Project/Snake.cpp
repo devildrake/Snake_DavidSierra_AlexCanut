@@ -1,51 +1,83 @@
 #include "Snake.h"
-#include "LevelScene.h"
+#include "GameScene.h"
+#include "Niveles.h"
 #include "ID.h"
 #include "InputManager.h"
+#include "TimeManager.h"
+#include <time.h>
 #include "Logger.h"
 #include "SceneManager.h"
 using namespace Logger;
-
-
 Snake::Snake() {
-	/*anim.begin = { { 0, 0, W.GetWidth(), W.GetHeight() }, ObjectID::S_08 };
-	anim.end = { { 0, 0, W.GetWidth(), W.GetHeight() }, ObjectID::S_10 };*/
-	std::pair<int, int> posCabOrg = {0, 0};
-	dir = 0;
-	coord.push_back(posCabOrg);
-	coord[0].first = coord[0].second = 0;
+	head.transform = { W.GetWidth()/2, W.GetHeight() / 2, W.GetWidth() / 40, W.GetHeight() / 40 };
+	head.objectID = ObjectID::S_08;
+	body.transform = { head.transform.x- head.transform.w , head.transform.y, W.GetWidth() / 40, W.GetHeight() / 40 };
+	body.objectID = ObjectID::S_09;
+	tail.transform = { body.transform.x- body.transform.w , body.transform.y , W.GetWidth() / 40, W.GetHeight() / 40 };
+	tail.objectID = ObjectID::S_09;
 
+	anim.push_back(head);
+	anim.push_back(body);
+	anim.push_back(tail);
+	anim.push_back(tail);
 }
-Snake::~Snake() {
+void Snake::Push(){
 }
-void Snake::Update(void) {
-
+void Snake::Mov() {
+	if (IM.IsKeyDown<KEY_BUTTON_DOWN>() && dir != 3) {
+		dir = 4;
+	}
+	else if (IM.IsKeyDown<KEY_BUTTON_UP>() && dir != 4) {
+		dir = 3;
+	}
+	else if (IM.IsKeyDown<KEY_BUTTON_RIGHT>() && dir !=2){
+		dir = 1;
+	}
+	else if (IM.IsKeyDown<KEY_BUTTON_LEFT>() && dir !=1) {
+		dir = 2;
+	}
 	switch (dir) {
-	case 0:
-		coord[0].second--;
-		break;
-	case 1:
-		coord[0].second++;
+	case 0: break;
+	case 1:	
+			for (int i = anim.size()-1; i > 0; i--) {
+				anim[i].transform.x = (anim[i-1].transform.x - anim[i-1].transform.w);
+				anim[i].transform.y = anim[i-1].transform.y;
+			}
+			anim[0].transform.x += TM.GetDeltaTime()*200.f;
 		break;
 	case 2:
-		coord[0].first++;
+		for (int i = anim.size()-1; i > 0; i--) {
+			anim[i].transform.x = (anim[i-1].transform.x + anim[i-1].transform.w);
+			anim[i].transform.y = anim[i-1].transform.y;
+		}
+			anim[0].transform.x -= TM.GetDeltaTime()*200.f;
+		
 		break;
 	case 3:
-		coord[0].first++;
+		for (int i = anim.size()-1; i > 0; i--) {
+			anim[i].transform.x = anim[i-1].transform.x;
+			anim[i].transform.y = anim[i-1].transform.y + anim[i-1].transform.h;
+		}
+			anim[0].transform.y -= TM.GetDeltaTime()*200.f;
+		
+		break;
+	case 4:
+		for (int i = anim.size()-1; i > 0; i--) {
+			anim[i].transform.x = anim[i-1].transform.x;
+			anim[i].transform.y = anim[i-1].transform.y - anim[i-1].transform.h;
+
+		}
+			anim[0].transform.y += TM.GetDeltaTime()*200.f;
+		
 		break;
 	}
-
-
-}
-void Snake::Move(int dir) {
-
 }
 
-void Snake::changeDir() {
-
+void Snake::Update() {
+	Mov();
 }
 void Snake::Draw(void) {
-	/*for (vector<Sprite>::iterator it = anim.begin; it != anim.end; it++) {
-		
-	}*/
+	for (int i = 0; i < anim.size(); i++) {
+		anim[i].Draw();
+	}
 }

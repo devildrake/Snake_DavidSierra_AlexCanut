@@ -9,11 +9,11 @@
 
 //! Encapsulates everything related to mouse coordinates.
 struct MouseCoords {
-	Sint32 x{ 0 }, y{ 0 }; //??
-	MouseCoords() = default;
+	Sint32 x{ 0 }, y{ 0 }; //?? ya lo descubriremos Joan XD
+	MouseCoords() = default; //constructor por defecto
 	MouseCoords(Sint32 x_, Sint32 y_) : x(x_), y(y_) {}; //constructor de la clase
-	friend MouseCoords operator-(const MouseCoords &lhs, const MouseCoords &rhs) { return std::move(MouseCoords(lhs.x - rhs.x, lhs.y - rhs.y)); }; //??
-	friend std::ostream &operator<<(std::ostream &os, const MouseCoords &rhs) { return os << '(' << rhs.x << ", " << rhs.y << ')'; }; //??
+	friend MouseCoords operator-(const MouseCoords &lhs, const MouseCoords &rhs) { return std::move(MouseCoords(lhs.x - rhs.x, lhs.y - rhs.y)); }; //sobrecarga operador -
+	friend std::ostream &operator<<(std::ostream &os, const MouseCoords &rhs) { return os << '(' << rhs.x << ", " << rhs.y << ')'; }; //sobrecarga operador <<
 };
 
 //! Identifies each button pressed with the mouse (left | middle | right).

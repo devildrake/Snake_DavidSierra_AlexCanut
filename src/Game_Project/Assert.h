@@ -14,7 +14,7 @@
 #ifdef NDEBUG
 #define ASSERT(cnd) (cnd)
 #define ASSERT_MSG(cnd, ...) (cnd)
-#else
+#else //esta classe Assert debe imprimir por pantalla si hay algun error, hace la fucion de comprobart queno haya fallos
 #define ASSERT(cnd) \
 		([](decltype(cnd) &&c, const char* const f) { \
 			if (!!c) return c; \

@@ -21,26 +21,25 @@ public:
 	}
 	template<class S> void SetCurScene(void) { //cambias la escena actual
 		static_assert(std::is_base_of<Scene, S>::value, "Can't add scene that doesn't inherit from IScene");
-		if (m_curScene != nullptr) //comprueba si hay una escena actualmente
+		if (m_curScene != nullptr) //comprueva si hay una escena actualmente
 			m_curScene->OnExit(), //sale de la escena actual
-			m_curScene->SetState<SceneState::SLEEP>(); //hace que la escena actual se ponga en modo SLEEP
-		ASSERT((m_curScene = GetScene<S>()) != nullptr);//se asegura que la escena actual no es null, es decir que exista alguna escena despues de cambiarla
+			m_curScene->SetState<SceneState::SLEEP>(); //hace que la escena actual este en modo SLEEP
+		ASSERT((m_curScene = GetScene<S>()) != nullptr);//se asegura que la escena actual no sea null, es decir que haya alguna escena 
 		m_curScene->SetState<SceneState::RUNNING>();//cambia el estado de la escena a RUNNING
 		m_curScene->OnEntry(); //entra en la escena
-		
 	}
-	inline Scene *&GetCurScene(void) { return m_curScene; }//Funcion que devuelve la escena actualmente en estado RUNNING
+	inline Scene *&GetCurScene(void) { return m_curScene; } //??
 private:
 	SceneManager() = default;
-	SceneManager(const SceneManager &rhs) = delete; 
-	SceneManager &operator=(const SceneManager &rhs) = delete; //Sobrecarga del operador para borrar?
+	SceneManager(const SceneManager &rhs) = delete; //constructor??
+	SceneManager &operator=(const SceneManager &rhs) = delete;//??
 	template<class S> S *GetScene(void) { //para "pillar una escena" , diferencia entre esta y AddScene--> addscene es añadir escena joan XD --> el get sirve para ver en que escena estas o para versi existe una scena
 		auto scene = m_scenes.find(typeid(S)); //asignas a una var la escena
 		return (scene != m_scenes.end()) ? dynamic_cast<S*>(scene->second) : nullptr;
-		// Si cumple la condicion entra aquí y si no hace return
-
+		//		si se cumple esta condicion     pasa esto					sino null
+		//ai dios ajajajajja, Joan, mientras haya escenas, iterara, si una escena da error, la pone en null o algo asi (google is <3)
 	}
 private:
-	std::unordered_map<std::type_index, Scene*> m_scenes;	// Array de pantallas
-	Scene *m_curScene{ nullptr };							// Puntero a la current Scene
+	std::unordered_map<std::type_index, Scene*> m_scenes;	// Array of screens
+	Scene *m_curScene{ nullptr };							// Pointer to the current scene
 };

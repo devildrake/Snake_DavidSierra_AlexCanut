@@ -1,23 +1,19 @@
 #pragma once
-#include "Scene.h"
 #include <vector>
 #include "Sprites.h"
 using namespace std;
-class Snake
-{
 
+class Snake{
 public:
-	Snake();
-	~Snake();
-	void Draw(void);
-	void Update(void);
-	void Move(int dir);
-	void changeDir();
-	vector<pair<int, int>> coord;
-
+	vector<Sprite> anim;
+    Snake();
+	void Mov();
+	void Update(void) ;
+	void Draw(void) ;
+	void Push();
+	int dir = 0;
+	Sprite head;
+	Sprite body;
+	Sprite tail;
 private:
-
-	int dir;
-	int vel;
-
 };

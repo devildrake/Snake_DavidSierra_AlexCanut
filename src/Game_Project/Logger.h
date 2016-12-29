@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include <iostream>
-
+//clase quese encarga de printear por pantalla texto
 namespace Logger {
 
 	// Function that prints an end of line

@@ -1,21 +1,22 @@
 #pragma once
 #include <iostream>
 
-enum class ObjectID : const int {
-	S_00, // ID_Fondo
-	S_01, // ID_Titulo
-	S_02, // ID_PlayButton
-	S_03, // ID_EasyButton
-	S_04, // ID_MediumButton
-	S_05, // ID_HardButton
-	S_06, // ID_ExitButton
-	S_07, // ID_bg niveles
-	S_08, // ID_Cabeza
-	S_09, // ID_Cuerpo
-	S_10, // ID_Cola
-	S_11, // ID_Manzana
-	S_12  // ID_Pared
+enum class ObjectID : const int { //enum de los distintos ids del juego
+	S_00, //background
+	S_01, //Titulo
+	S_02, // play
+	S_03, //Easy
+	S_04, //Med
+	S_05, //hard
+	S_06, //exit
+	S_07, //bg niveles
+	//S_08, //cabeza serpiente
+	S_08, //snake
+	S_09, //cuerpo
+	S_10, // cola
+	S_11, // apple
+	S_12 //pared
 	
 };
-inline std::ostream &operator<<(std::ostream &os, const ObjectID &id) { return os << int(id); };
-inline std::istream &operator>>(std::istream &is, ObjectID &id) { return is >> reinterpret_cast<int&>(id); };
+inline std::ostream &operator<<(std::ostream &os, const ObjectID &id) { return os << int(id); }; //sobre carga ooperador <<
+inline std::istream &operator>>(std::istream &is, ObjectID &id) { return is >> reinterpret_cast<int&>(id); }; //sobrecarga operador >>

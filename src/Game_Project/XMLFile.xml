@@ -1,51 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
+<Atributos>
+  <Easy>
+    <Columns>50</Columns>
+    <Grid>50*50</Grid>
+    <Time>100</Time>
+    <V>10</V>
+    <Food>10</Food>
+    <IncrementoFood>5</IncrementoFood>
+  </Easy>
+  <Medium>
+    <Columns>30</Columns>
+    <Grid>30*30</Grid>
+    <Time>100</Time>
+    <V>10</V>
+    <Food>10</Food>
+    <IncrementoFood>5</IncrementoFood>
+  </Medium>
+  <Hard>
+    <Columns>10</Columns>
+    <Grid>10*10</Grid>
+    <Time>100</Time>
+    <V>10</V>
+    <Food>10</Food>
+    <IncrementoFood>5</IncrementoFood>
+  </Hard>
+</Atributos>
+<!--Valores de las variables inventados por el momento.-->
+<!--Es imposible comentar cada liea, simplemente he dividido el xml en 4 partes/nodos: atributos generales, easy, medium y hard. Cada unno con sus respectivos atributos y valores -->
 
-<gameScene>
-  <scene id="easy">
-    <general_attributes
-      v="v += score/g"
-      g="10000"
-      life="3"
-      score="q*100">
-    </general_attributes>
-    <specific_attributes
-      grid="5r*5c"
-      timeLvl="4t"
-      v="z"
-      food="x"
-      incFood="y">
-    </specific_attributes>
-  </scene>
-  
-  <scene id="medium">
-    <general_attributes
-      v="v += score/g"
-      g="10000"
-      life="3"
-      score="q*100">
-    </general_attributes>
-    <specific_attributes
-      grid="2r*2c"
-      timeLvl="2t"
-      v="2z"
-      food="2x"
-      incFood="2y">
-    </specific_attributes>
-  </scene>
-  
-  <scene id="hard">
-    <general_attributes
-      v="v += score/g"
-      g="10000"
-      life="3"
-      score="q*100">
-    </general_attributes>
-    <specific_attributes
-      grid="r*c"
-      timeLvl="t"
-      v="3z"
-      food="3x"
-      incFood="4y">
-    </specific_attributes>
-  </scene>
-</gameScene>
