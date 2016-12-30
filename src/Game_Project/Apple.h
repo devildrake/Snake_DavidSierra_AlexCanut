@@ -1,39 +1,22 @@
 #include <vector>
 #include "Sprites.h"
-#include "GameScene.h"
+#include "Tabla.h"
 using namespace std;
 
 class Apple {
 public:
 	Sprite laManzana;
-	Apple(GameScene*);
 	Apple(void);
 	~Apple();
 	void Draw(void);
-	void Update(void);
-	void changePos(void);
+	void Update(Tabla);
+	void SetPos(Tabla);
+	void SetPos(Tabla, int, int);
+	void InitialPos(Tabla);
 	int posX;
 	int posY;
-
+	bool initialized;
 private:
 
-	GameScene* laScene;
 };
-*/
-/*class Apple {
-public:
 
-	vector<Sprite> apple;
-	Sprite** laTabla;
-	Apple(int,int);
-	Apple();
-	~Apple();
-	void Update(void);
-	void Draw(void);
-	void Pop();
-	Sprite A;
-
-private:
-	 int numApple;
-//	 GameScene laGameScene;
-};

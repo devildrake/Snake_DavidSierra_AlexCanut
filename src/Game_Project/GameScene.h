@@ -20,11 +20,12 @@ public: //declaracion de cabeceras
 	void Draw(void) override;
 	void Xoc();
 	int numapple;
-	Sprite **tabla;
+	//Sprite **tabla;
 	int numC = 30;
 	int numR = 30;
+	
 private:
-
+	Tabla grid;
 	Sprite fondo;
 	Sprite pared;
 	Snake snake;
