@@ -7,8 +7,13 @@
 #include <fstream>
 #include <stdio.h>
 #include <strstream>
-
-
+#include "XML.h"
+#include "Niveles.h"
+#include "ID.h"
+#include "InputManager.h"
+#include "Logger.h"
+#include "SceneManager.h"
+#include <time.h>
 
 class GameScene : public Scene
 {
