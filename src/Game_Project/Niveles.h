@@ -1,6 +1,7 @@
 #pragma once
 #include "Scene.h"
 #include "Sprites.h"
+#include <vector>
 
 class Niveles : public Scene //clase para controlar lasescenas de losdistintos niveles del juego
 {
@@ -13,7 +14,7 @@ public:
 	void Update(void) override;
 	void Draw(void) override;
 	int static GetValue(std::string valor);
-	static vector <int> xmlVal;
+
 	//static vector<int> xmlValues;
 private:
 	Sprite background;

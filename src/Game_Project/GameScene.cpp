@@ -41,8 +41,7 @@ GameScene::GameScene() { //constructor, inicializamos la posicion de cada uno de
 GameScene::~GameScene() {
 }
 void GameScene::OnEntry(void) {
-	numC = SM.nivelesScene->xmlVal[0];
-	numR = SM.nivelesScene->xmlVal[0];
+
 }
 void GameScene::OnExit(void) {
 }

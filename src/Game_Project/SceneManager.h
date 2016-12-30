@@ -9,7 +9,6 @@
 // SceneManager class to store and control the whole game scenes
 class SceneManager {
 public:
-	Niveles *nivelesScene{ nullptr };
 	~SceneManager() { for (auto &scene : m_scenes) delete scene.second; } //destructor de la clase
 	inline static SceneManager &Instance() { //singleton
 		static SceneManager sceneManager;

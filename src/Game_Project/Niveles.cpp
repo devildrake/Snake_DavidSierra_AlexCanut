@@ -7,8 +7,7 @@
 #include "SceneManager.h"
 #include <XML/rapidxml_utils.hpp>
 using namespace Logger;
-
-
+static vector <int> xmlVal;
 Niveles::Niveles() {//constructor, inicializamos la posicion de cada uno de los sprites mencionados y le asignamos su imagen
 	background = { { 0, 0, W.GetWidth(), W.GetHeight() }, ObjectID::S_00 };
 	title = { { 250, 0, W.GetWidth() / 2, W.GetHeight() / 2 }, ObjectID::S_01 };
@@ -34,7 +33,6 @@ int Niveles::GetValue(std::string valor) {
 void Niveles::OnEntry(void) { 
 }
 void Niveles::OnExit(void) {
-	SM.m_prevScene = SM.GetCurScene();
 }
 void Niveles::Update(void) {
 	static MouseCoords mouseCoords(0, 0); //variable q recoje la coordenadas del puntero del mouse al darle click
@@ -44,18 +42,20 @@ void Niveles::Update(void) {
 		//Println(mouseCoords);
 		
 		if ((mouseCoords.x >= 450 && mouseCoords.x <= 590) && (mouseCoords.y >= 360 && mouseCoords.y <= 400)) { //si el click del raton essta entre esascoordenadas, entra en la escena que contiene el nivel Easy y carga su XML
-			SM.SetCurScene<GameScene>();					//el if lo modificaremos para hacerlo sin coordenadas y usar la width i height del sprite (coord x = -width/2, coord y = -heigth/2)
 			XML("easy");
+			SM.SetCurScene<GameScene>();					//el if lo modificaremos para hacerlo sin coordenadas y usar la width i height del sprite (coord x = -width/2, coord y = -heigth/2)
 			//setAttrValue("easy", "v", 1995);
 			//cout << "Valor de v: " << getAttrValue("v") << endl;
 		}
 		else if ((mouseCoords.x >= 450 && mouseCoords.x <= 590) && (mouseCoords.y >= 460 && mouseCoords.y <= 500)) {//si el click del raton essta entre esascoordenadas, entra en la escena que contiene el nivel Medium y carga su XML
-			SM.SetCurScene<GameScene>();
 			XML("medium");
+			SM.SetCurScene<GameScene>();
+			
 		}
 		else if ((mouseCoords.x >= 450 && mouseCoords.x <= 590) && (mouseCoords.y >= 560 && mouseCoords.y <= 600)) {//si el click del raton essta entre esascoordenadas, entra en la escena que contiene el nivel Hard y carga su XML
-			SM.SetCurScene<GameScene>();
 			XML("hard");
+			SM.SetCurScene<GameScene>();
+			
 		}
 	}
 
