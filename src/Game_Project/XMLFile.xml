@@ -25,6 +25,3 @@
     <IncrementoFood>5</IncrementoFood>
   </Hard>
 </Atributos>
-<!--Valores de las variables inventados por el momento.-->
-<!--Es imposible comentar cada liea, simplemente he dividido el xml en 4 partes/nodos: atributos generales, easy, medium y hard. Cada unno con sus respectivos atributos y valores -->
-

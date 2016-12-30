@@ -27,6 +27,8 @@ void Tabla::crearTabla(int AnumR, int AnumC) {
 		sprites = new Sprite*();
 
 		for (int i = 0; i < numR; i++) sprites[i] = new Sprite[numC];//por cada numero de filas se añaden el numero de columnas
+		
+		std::cout << "CREA TABLA" << std::endl;
 
 		for (int i = 0; i < numR; i++) {
 			for (int j = 0; j < numC; j++) {
@@ -42,6 +44,7 @@ void Tabla::crearTabla(int AnumR, int AnumC) {
 			}
 		}
 		wasMade = true;
+		std::cout << "YA SE HA CREADO LA TABLA" << std::endl;
 	}
 }
 
