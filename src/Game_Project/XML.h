@@ -16,7 +16,7 @@ using namespace rapidxml;
 static vector <int> xmlValues;
 //using namespace std;
 
-void XML(std::string dificultad) {
+static void XML(std::string dificultad) {
 	//Niveles lvl;
 	//rapidxml::file<> xmlFile(RESOURCE_FILE(filename));
 	rapidxml::xml_document<> doc;

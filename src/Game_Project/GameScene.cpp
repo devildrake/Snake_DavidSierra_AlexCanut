@@ -2,13 +2,12 @@
 
 using namespace Logger;
   
-
-
 GameScene::GameScene() { //constructor, inicializamos la posicion de cada uno de los sprites mencionados y le asignamos su imagen
 //	manzana = Apple::Apple(this);
 	fondo = { { 0, 0, W.GetWidth(), W.GetHeight() }, ObjectID::S_07 };
 	life = 3;
-	numC = xmlValues[0];
+
+	numC = xmlValues[0]; //Aqui es donde supuestamente encuentra un valor de vector out of bounds
 	numR = xmlValues[0];
 	//num cols y num rows habra q leerlo desde el xml
 	//numC = lvl.GetValue("Columns");//Niveles::getValue("z");
