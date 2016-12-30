@@ -5,6 +5,7 @@
 #include "Logger.h"
 #include "SceneManager.h"
 #include <time.h>
+//#include "XML.h"
 using namespace Logger;
   
 
@@ -15,6 +16,9 @@ GameScene::GameScene() { //constructor, inicializamos la posicion de cada uno de
 	life = 3;
 	//num cols y num rows habra q leerlo desde el xml
 	//numC = lvl.GetValue("Columns");//Niveles::getValue("z");
+	//numC = numR = xmlValues[0];
+	
+
 	//Println(numC);
 	//numR = numC;//Niveles::getValue("c");
 	/*tabla = new Sprite*[numR];
@@ -37,6 +41,8 @@ GameScene::GameScene() { //constructor, inicializamos la posicion de cada uno de
 GameScene::~GameScene() {
 }
 void GameScene::OnEntry(void) {
+	numC = SM.nivelesScene->xmlVal[0];
+	numR = SM.nivelesScene->xmlVal[0];
 }
 void GameScene::OnExit(void) {
 }

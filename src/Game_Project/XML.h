@@ -15,8 +15,9 @@ using namespace rapidxml;
 
 static vector <int> xmlValues;
 //using namespace std;
+
 void XML(std::string dificultad) {
-	Niveles lvl;
+	//Niveles lvl;
 	//rapidxml::file<> xmlFile(RESOURCE_FILE(filename));
 	rapidxml::xml_document<> doc;
 	std::ifstream file("XMLFile.xml");
@@ -36,11 +37,11 @@ void XML(std::string dificultad) {
 
 		std::cout << pRoot->first_node("Easy")->name() << ':' << std::endl; //printeo el nodo llamado "Easy"
 		pNode = pRoot->first_node("Easy"); //asigno al puntero pNode el nodo con nombre "Easy".
-
+		int i = 0;
 		for (rapidxml::xml_node<> *pAttr = pNode->first_node(); pAttr; pAttr = pAttr->next_sibling()) {
 			std::cout << pAttr->name() << ":" << pAttr->value() << std::endl;
 			xmlValues.push_back(stoi(pAttr->value()));
-			
+			i++;
 		}cout << "xmlValues Size: " << xmlValues.size();
 		//xmlVal = xmlValues;
 		//cout << "xmlVal Size: " << xmlVal.size();

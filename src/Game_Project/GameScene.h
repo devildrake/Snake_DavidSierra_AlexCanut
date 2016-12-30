@@ -9,9 +9,11 @@
 #include <strstream>
 
 
+
 class GameScene : public Scene
 {
 public: //declaracion de cabeceras
+
 	explicit GameScene();
 	~GameScene() override;
 	void OnEntry(void) override;

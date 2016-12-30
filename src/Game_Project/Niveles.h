@@ -13,6 +13,7 @@ public:
 	void Update(void) override;
 	void Draw(void) override;
 	int static GetValue(std::string valor);
+	static vector <int> xmlVal;
 	//static vector<int> xmlValues;
 private:
 	Sprite background;

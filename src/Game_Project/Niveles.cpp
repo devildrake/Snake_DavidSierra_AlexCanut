@@ -8,7 +8,7 @@
 #include <XML/rapidxml_utils.hpp>
 using namespace Logger;
 
-static vector <int> xmlVal;
+
 Niveles::Niveles() {//constructor, inicializamos la posicion de cada uno de los sprites mencionados y le asignamos su imagen
 	background = { { 0, 0, W.GetWidth(), W.GetHeight() }, ObjectID::S_00 };
 	title = { { 250, 0, W.GetWidth() / 2, W.GetHeight() / 2 }, ObjectID::S_01 };
@@ -34,6 +34,7 @@ int Niveles::GetValue(std::string valor) {
 void Niveles::OnEntry(void) { 
 }
 void Niveles::OnExit(void) {
+	SM.m_prevScene = SM.GetCurScene();
 }
 void Niveles::Update(void) {
 	static MouseCoords mouseCoords(0, 0); //variable q recoje la coordenadas del puntero del mouse al darle click
