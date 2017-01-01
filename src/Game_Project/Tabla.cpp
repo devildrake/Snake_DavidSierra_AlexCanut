@@ -24,7 +24,9 @@ void Tabla::crearTabla(int AnumR, int AnumC) {
 		numC = AnumC;
 		numR = AnumR;
 
-		sprites = new Sprite*();
+		//sprites = new Sprite*();
+
+		sprites = new Sprite*[numR];
 
 		for (int i = 0; i < numR; i++) sprites[i] = new Sprite[numC];//por cada numero de filas se añaden el numero de columnas
 		

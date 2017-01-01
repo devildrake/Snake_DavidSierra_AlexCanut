@@ -32,8 +32,8 @@ static void XML(std::string dificultad) {
 	rapidxml::xml_node<> *pNode; //creo otro puntero de tipo nodo xml
 
 	std::cout << "DIFICULTAD NIVEL" << std::endl;
-	
-	if (dificultad == "Easy") {
+
+	if (dificultad == "easy") {
 		std::cout << pRoot->first_node("Easy")->name() << ':' << std::endl; //imprimo el nodo llamado "Easy"
 		pNode = pRoot->first_node("Easy"); //asigno al puntero pNode el nodo con nombre "Easy".
 		int i = 0;
@@ -41,11 +41,13 @@ static void XML(std::string dificultad) {
 			std::cout << pAttr->name() << ":" << pAttr->value() << std::endl;
 			xmlValues.push_back(stoi(pAttr->value()));
 			i++;
-		}cout << "xmlValues Size: " << xmlValues.size();
-		//xmlVal = xmlValues;
-		//cout << "xmlVal Size: " << xmlVal.size();
+		}
+		cout << "xmlValues Size: " << xmlValues.size()<<endl;
 	}
-	else if (dificultad == "Medium") {
+
+
+
+	else if (dificultad == "medium") {
 
 		std::cout << pRoot->first_node("Medium")->name() << ':' << std::endl; //printeo el nodo llamado "Medium"
 		pNode = pRoot->first_node("Medium"); //asigno al puntero pNode el nodo con nombre "Medium".
@@ -56,7 +58,7 @@ static void XML(std::string dificultad) {
 		}
 
 	}
-	else if (dificultad == "Hard") {
+	else if (dificultad == "hard") {
 
 		std::cout << pRoot->first_node("Hard")->name() << ':' << std::endl; //printeo el nodo llamado "Hard"
 		pNode = pRoot->first_node("Hard"); //asigno al puntero pNode el nodo con nombre "Hard".

@@ -7,30 +7,32 @@
 #include <fstream>
 #include <stdio.h>
 #include <strstream>
-#include "XML.h"
 #include "Niveles.h"
 #include "ID.h"
 #include "InputManager.h"
 #include "Logger.h"
 #include "SceneManager.h"
 #include <time.h>
+#include "XML.h"
 
 class GameScene : public Scene
 {
 public: //declaracion de cabeceras
 
+	static int columnaFila;
 	explicit GameScene();
 	~GameScene() override;
 	void OnEntry(void) override;
 	void OnExit(void) override;
 	void Update(void) override;
 	void Draw(void) override;
-	void Xoc();
+	void CheckHit();
 	int numapple;
+	bool hasStarted;
 	//Sprite **tabla;
 	int numC = 30;
 	int numR = 30;
-	
+
 private:
 	Tabla grid;
 	Sprite fondo;

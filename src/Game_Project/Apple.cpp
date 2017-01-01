@@ -10,21 +10,31 @@ using namespace Logger;
 
 
 Apple::Apple() {
-	laManzana.objectID = ObjectID::S_10;
 	initialized = false;
+	contador = 0;
+	numMan = 0;
+}
+
+void Apple::AumentarVector(int num) {
+	numMan+= num;
+	contador = 0;
 }
 
 Apple::~Apple() {
 }
 
 void Apple::Draw() {
-	laManzana.Draw();
-
+	int i = 0;
+	for (auto &Sprite : manzanas) // access by reference to avoid copying
+	{
+		manzanas[i].Draw();
+		i++;
+	}
 }
 
 
 
-void Apple::Update(Tabla aTabla) {
+void Apple::Update() {
 	//laManzana.transform = laScene.tabla[posX][posY].transform;
 	//laManzana.transform = aTabla.sprites[posX][posY].transform;
 }
@@ -45,7 +55,7 @@ void Apple::SetPos(Tabla aTabla, int i, int j) {
 	//	posY = rand() % laScene.numR;
 	//posX = i;
 	//posY = j;
-	laManzana.transform = aTabla.sprites[posX][posY].transform;
+	//laManzana.transform = aTabla.sprites[posX][posY].transform;
 	//cout << "Setting manzanaPos to" << laManzana.transform.x <<","<< laManzana.transform.y <<endl;
 
 }
@@ -55,7 +65,7 @@ void Apple::SetPos(Tabla aTabla) {
 	//	posY = rand() % laScene.numR;
 	posX = rand() % aTabla.numC;
 	posY = rand() % aTabla.numR;
-	laManzana.transform = aTabla.sprites[posX][posY].transform;
+	//laManzana.transform = aTabla.sprites[posX][posY].transform;
 }
 
 

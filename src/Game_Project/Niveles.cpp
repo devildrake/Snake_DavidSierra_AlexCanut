@@ -16,7 +16,10 @@ Niveles::Niveles() {//constructor, inicializamos la posicion de cada uno de los 
 	easy = { { 400,300,W.GetWidth() / 4, W.GetHeight() / 4 }, ObjectID:: S_03 };
 	med = { { 400,400,W.GetWidth() / 4, W.GetHeight() / 4 }, ObjectID:: S_04 };
 	hard = { { 400,500,W.GetWidth() / 4, W.GetHeight() / 4 }, ObjectID::S_05 };
-	xmlVal = xmlValues;
+
+
+//	cout<<"notOutOfRange " << xmlVal[0];
+
 }
 Niveles::~Niveles() { //destructor
 }
@@ -45,17 +48,20 @@ void Niveles::Update(void) {
 		
 		if ((mouseCoords.x >= 450 && mouseCoords.x <= 590) && (mouseCoords.y >= 360 && mouseCoords.y <= 400)) { //si el click del raton essta entre esascoordenadas, entra en la escena que contiene el nivel Easy y carga su XML
 			XML("easy");
+			xmlVal = xmlValues;
 			SM.SetCurScene<GameScene>();					//el if lo modificaremos para hacerlo sin coordenadas y usar la width i height del sprite (coord x = -width/2, coord y = -heigth/2)
 			//setAttrValue("easy", "v", 1995);
 			//cout << "Valor de v: " << getAttrValue("v") << endl;
 		}
 		else if ((mouseCoords.x >= 450 && mouseCoords.x <= 590) && (mouseCoords.y >= 460 && mouseCoords.y <= 500)) {//si el click del raton essta entre esascoordenadas, entra en la escena que contiene el nivel Medium y carga su XML
 			XML("medium");
+			xmlVal = xmlValues;
 			SM.SetCurScene<GameScene>();
 			
 		}
 		else if ((mouseCoords.x >= 450 && mouseCoords.x <= 590) && (mouseCoords.y >= 560 && mouseCoords.y <= 600)) {//si el click del raton essta entre esascoordenadas, entra en la escena que contiene el nivel Hard y carga su XML
 			XML("hard");
+			xmlVal = xmlValues;
 			SM.SetCurScene<GameScene>();
 			
 		}

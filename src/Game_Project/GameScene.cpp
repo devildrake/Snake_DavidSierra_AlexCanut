@@ -6,14 +6,14 @@ GameScene::GameScene() { //constructor, inicializamos la posicion de cada uno de
 //	manzana = Apple::Apple(this);
 	fondo = { { 0, 0, W.GetWidth(), W.GetHeight() }, ObjectID::S_07 };
 	life = 3;
+	hasStarted = 0;
 
 	/*numC = xmlValues[0]; //Aqui es donde supuestamente encuentra un valor de vector out of bounds
 	numR = xmlValues[0];*/
 
 	//num cols y num rows habra q leerlo desde el xml
 	//numC = lvl.GetValue("Columns");//Niveles::getValue("z");
-	//numC = numR = xmlValues[0];
-	
+
 
 	//Println(numC);
 	//numR = numC;//Niveles::getValue("c");
@@ -36,6 +36,8 @@ GameScene::GameScene() { //constructor, inicializamos la posicion de cada uno de
 }
 GameScene::~GameScene() {
 }
+
+
 void GameScene::OnEntry(void) {
 
 }
@@ -51,7 +53,7 @@ void GameScene::OnExit(void) {
 		apple.push_back(A);
 	}
 }*/
-void GameScene::Xoc() {
+void GameScene::CheckHit() {
 	if ((snake.anim[0].transform.x >= grid.sprites[0][0].transform.x && snake.anim[0].transform.x <= grid.sprites[0][numC - 1].transform.x &&
 	snake.anim[0].transform.y <= grid.sprites[0][0].transform.y || snake.anim[0].transform.y >= grid.sprites[0][numC - 1].transform.y) ||
 	(snake.anim[0].transform.x <= grid.sprites[0][0].transform.x || snake.anim[0].transform.x >= grid.sprites[0][numC - 1].transform.x &&
@@ -99,10 +101,12 @@ void GameScene::Xoc() {
 }
 
 void GameScene::Update(void) {
-	grid.crearTabla(numR, numC);
-	manzana.InitialPos(grid);
-
-		Xoc();
+	if (!hasStarted) {
+		grid.crearTabla(numR, numC);
+		//manzana.AumentarVector(1);
+	}
+	//manzana.InitialPos(grid);
+		CheckHit();
 		snake.Update();
 }
 void GameScene::Draw(void) {
