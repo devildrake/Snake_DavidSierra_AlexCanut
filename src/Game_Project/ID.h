@@ -13,9 +13,10 @@ enum class ObjectID : const int { //enum de los distintos ids del juego
 	//S_08, //cabeza serpiente
 	S_08, //snake
 	S_09, //cuerpo
-	S_10, // cola
+	S_10, // cola -- MANZANA
 	S_11, // apple
 	S_12 //pared
+	 
 	
 };
 inline std::ostream &operator<<(std::ostream &os, const ObjectID &id) { return os << int(id); }; //sobre carga ooperador <<

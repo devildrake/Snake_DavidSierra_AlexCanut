@@ -32,7 +32,7 @@ void Tabla::crearTabla(int AnumR, int AnumC) {
 		
 		std::cout << "CREA TABLA" << std::endl;
 
-		for (int i = 0; i < numR; i++) {
+		/*for (int i = 0; i < numR; i++) {
 			for (int j = 0; j < numC; j++) {
 				sprites[i][0].transform = { i * (20) + ((W.GetWidth() / 2 - ((numR / 2) * 20))),
 					((W.GetHeight() / 2 - ((numC / 2) * 20))),50, 50 };
@@ -43,8 +43,42 @@ void Tabla::crearTabla(int AnumR, int AnumC) {
 				sprites[numR - 1][j].transform = { (numR - 1) * (20) + ((W.GetWidth() / 2 - ((numR / 2) * 20))),
 					j * (20) + ((W.GetHeight() / 2 - ((numC / 2) * 20))),50, 50 };
 				sprites[i][j].objectID = ObjectID::S_11;
+				//std::cout <<"Se ha creado un sprite con posicion: X--> "<< sprites[i][j].transform.x<<"  Y--> "<< sprites[i][j].transform.y << "i-->  "<<i<< " j--> "<< j <<"\n";
+				
+
+
+			
 			}
+		}*/
+		
+		int x = 0;
+		for (int i = 0; i < numR; i++) {
+			int y = 0;
+			for (int j = 0; j < numC; j++) {
+				
+				sprites[i][j].transform.x = x;
+
+				sprites[i][j].transform.y = y;
+
+				sprites[i][j].transform.w = 20;
+				sprites[i][j].transform.h = 20;
+
+				if (i == 0 || j == 0||i==numR-1||j==numC-1) {
+					sprites[i][j].objectID = ObjectID::S_11;
+				}
+				else {
+					sprites[i][j].objectID = ObjectID::S_12;
+				}
+				//std::cout <<"Se ha creado un sprite con posicion: X--> "<< sprites[i][j].transform.x<<"  Y--> "<< sprites[i][j].transform.y << "i-->  "<<i<< " j--> "<< j <<"\n";
+				
+				
+				
+				y += 20;
+			}
+			x += 20;
 		}
+
+		
 		wasMade = true;
 		std::cout << "YA SE HA CREADO LA TABLA" << std::endl;
 	}

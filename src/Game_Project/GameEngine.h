@@ -27,8 +27,9 @@ namespace GameEngine {
 		R.LoadTexture<ObjectID::S_08>("gfx/snake.png");
 		R.LoadTexture<ObjectID::S_09>("gfx/snake2.png");
 		R.LoadTexture<ObjectID::S_10>("gfx/manzana.png");
-		R.LoadTexture<ObjectID::S_11>("gfx/pared.png");
-		R.LoadTexture<ObjectID::S_12>("gfx/cos.png");
+		R.LoadTexture<ObjectID::S_11>("gfx/paredRoja.png");
+		R.LoadTexture<ObjectID::S_12>("gfx/Celda_vacia.png");
+
 	}
 	//Gestionas las scenes, ya sea añadiendolas o diciendo cual es la acutal
 	void AddScenes(void) {

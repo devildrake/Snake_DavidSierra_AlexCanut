@@ -13,23 +13,20 @@ Apple::Apple() {
 	initialized = false;
 	contador = 0;
 	numMan = 0;
+	laManzana.objectID = ObjectID::S_10;
+	laManzana.transform = { laManzana.transform.x - laManzana.transform.w , laManzana.transform.y , W.GetWidth() / 40, W.GetHeight() / 40 };
+	laManzana.transform.w = 60;
+	laManzana.transform.h = 40;
+
 }
 
-void Apple::AumentarVector(int num) {
-	numMan+= num;
-	contador = 0;
-}
+
 
 Apple::~Apple() {
 }
 
 void Apple::Draw() {
-	int i = 0;
-	for (auto &Sprite : manzanas) // access by reference to avoid copying
-	{
-		manzanas[i].Draw();
-		i++;
-	}
+	laManzana.Draw();
 }
 
 
@@ -46,7 +43,7 @@ void Apple::InitialPos(Tabla aTabla) {
 
 		initialized = true;
 
-		SetPos(aTabla, posX, posY);
+		//SetPos(aTabla);//, posX, posY);
 	}
 }
 
@@ -60,11 +57,34 @@ void Apple::SetPos(Tabla aTabla, int i, int j) {
 
 }
 
-void Apple::SetPos(Tabla aTabla) {
+void Apple::SetPos(Tabla* aTabla) {
+
+	posX = rand() % aTabla->numC;
+	posY = rand() % aTabla->numR;
+
+	laManzana.transform.x = aTabla->sprites[posX][posY].transform.x;
+	laManzana.transform.y = aTabla->sprites[posX][posY].transform.y;
+
+	//std::cout <<"JODER "<< aTabla->sprites[29][29].transform.x << std::endl;
+
+	//tempX = rand() % ((aTabla->sprites[1][aTabla->numR - 1].transform.x) - (aTabla->sprites[1][1].transform.x));
+
+	//tempY = rand() % ((aTabla->sprites[aTabla->numC - 1][1].transform.y) - (aTabla->sprites[1][1].transform.y));
+
+	//tempX += aTabla->sprites[1][0].transform.x+75;
+
+	//tempY += aTabla->sprites[0][1].transform.y+50;
+
+	//laManzana.transform.x = tempX;
+	
+	//laManzana.transform.y = tempY;
+
 	//	posX = rand() % laScene.numC;
 	//	posY = rand() % laScene.numR;
-	posX = rand() % aTabla.numC;
-	posY = rand() % aTabla.numR;
+	//posX = rand() % aTabla.numC;
+	//posY = rand() % aTabla.numR;
+	//posX = rand() % aNumC;
+	//posY = rand() % aNumR;
 	//laManzana.transform = aTabla.sprites[posX][posY].transform;
 }
 

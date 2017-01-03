@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Atributos>
   <Easy>
-    <Columns>50</Columns>
+    <Columns>5</Columns>
     <Grid>50*50</Grid>
     <Time>100</Time>
     <V>10</V>
@@ -9,7 +9,7 @@
     <IncrementoFood>5</IncrementoFood>
   </Easy>
   <Medium>
-    <Columns>30</Columns>
+    <Columns>2</Columns>
     <Grid>30*30</Grid>
     <Time>100</Time>
     <V>10</V>

@@ -1,6 +1,7 @@
 #pragma once
 #include "Sprites.h"
 #include "ID.h"
+#include <iostream>
 
 class Tabla {
 public:

@@ -27,12 +27,16 @@ public: //declaracion de cabeceras
 	void Update(void) override;
 	void Draw(void) override;
 	void CheckHit();
+	void GameScene::ActualizarSnake();
+	void CheckManzana();
 	int numapple;
 	bool hasStarted;
 	//Sprite **tabla;
 	int numC = 30;
 	int numR = 30;
-
+	Sprite unaManzana;
+	void ChangeManPos(void);
+	Tabla* tempT;
 private:
 	Tabla grid;
 	Sprite fondo;

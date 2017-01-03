@@ -15,11 +15,11 @@ Snake::Snake() {
 	body.objectID = ObjectID::S_09;
 	tail.transform = { body.transform.x- body.transform.w , body.transform.y , W.GetWidth() / 40, W.GetHeight() / 40 };
 	tail.objectID = ObjectID::S_09;
-
-	anim.push_back(head);
-	anim.push_back(body);
-	anim.push_back(tail);
-	anim.push_back(tail);
+	conjuntoSerp.push_back(head);
+	conjuntoSerp.push_back(body);
+	conjuntoSerp.push_back(tail);
+	tamaño = 3;
+	//anim.push_back(tail);
 }
 void Snake::Push(){
 }
@@ -36,7 +36,8 @@ void Snake::Mov() {
 	else if (IM.IsKeyDown<KEY_BUTTON_LEFT>() && dir !=1) {
 		dir = 2;
 	}
-	switch (dir) {
+	
+	/*switch (dir) {
 	case 0: break;
 	case 1:	
 			for (int i = anim.size()-1; i > 0; i--) {
@@ -70,6 +71,31 @@ void Snake::Mov() {
 			anim[0].transform.y += TM.GetDeltaTime()*200.f;
 		
 		break;
+	}*/
+
+
+	switch (dir) {
+		prevPosX = posX;
+		prevPosY = posY;
+	case 0:
+		break;
+	case 1: //IZQUIERDA?
+
+		posX -= 1;
+		break;
+	case 2:
+		posX += 1;
+
+		break;
+	case 3:
+		posY -= 1;
+
+
+		break;
+	case 4:
+		posY += 1;
+		break;
+	
 	}
 }
 
@@ -77,7 +103,7 @@ void Snake::Update() {
 	Mov();
 }
 void Snake::Draw(void) {
-	for (int i = 0; i < anim.size(); i++) {
-		anim[i].Draw();
+	for (int i = 0; i < conjuntoSerp.size(); i++) {
+		conjuntoSerp[i].Draw();
 	}
 }

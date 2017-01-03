@@ -8,6 +8,7 @@ GameScene::GameScene() { //constructor, inicializamos la posicion de cada uno de
 	life = 3;
 	hasStarted = 0;
 
+	GameScene::unaManzana.objectID = ObjectID::S_10;
 	/*numC = xmlValues[0]; //Aqui es donde supuestamente encuentra un valor de vector out of bounds
 	numR = xmlValues[0];*/
 
@@ -34,14 +35,22 @@ GameScene::GameScene() { //constructor, inicializamos la posicion de cada uno de
 		}
 	}	*/
 }
-GameScene::~GameScene() {
+
+void GameScene::CheckManzana() {
+	if (snake.head.transform.x == manzana.laManzana.transform.x+manzana.laManzana.transform.w) {
+		std::cout << "MISMA X JODER SI SISISISISI  " << std::endl;
+	}
 }
 
+GameScene::~GameScene() {
+
+}
 
 void GameScene::OnEntry(void) {
 
 }
 void GameScene::OnExit(void) {
+
 }
 /*void GameScene::Apple() {
 	srand(time(NULL));
@@ -54,20 +63,25 @@ void GameScene::OnExit(void) {
 	}
 }*/
 void GameScene::CheckHit() {
-	if ((snake.anim[0].transform.x >= grid.sprites[0][0].transform.x && snake.anim[0].transform.x <= grid.sprites[0][numC - 1].transform.x &&
-	snake.anim[0].transform.y <= grid.sprites[0][0].transform.y || snake.anim[0].transform.y >= grid.sprites[0][numC - 1].transform.y) ||
-	(snake.anim[0].transform.x <= grid.sprites[0][0].transform.x || snake.anim[0].transform.x >= grid.sprites[0][numC - 1].transform.x &&
-	snake.anim[0].transform.y <= grid.sprites[0][0].transform.y && snake.anim[0].transform.y >= grid.sprites[0][numC - 1].transform.y) ||
-	(snake.anim[0].transform.x >= grid.sprites[numR - 1][0].transform.x && snake.anim[0].transform.y >= grid.sprites[0][0].transform.y
-	&& snake.anim[0].transform.y <= grid.sprites[0][numC - 1].transform.y) || (snake.anim[0].transform.x >= grid.sprites[0][0].transform.x
-	&& snake.anim[0].transform.x <= grid.sprites[numR - 1][0].transform.x && snake.anim[0].transform.y <= grid.sprites[0][0].transform.y))
+	//Al hacer este If Explota todo joder
+	if ((snake.conjuntoSerp[0].transform.x >= grid.sprites[0][0].transform.x && snake.conjuntoSerp[0].transform.x <= grid.sprites[0][numC - 1].transform.x
+	&& snake.conjuntoSerp[0].transform.y <= grid.sprites[0][0].transform.y
+	|| snake.conjuntoSerp[0].transform.y >= grid.sprites[0][numC - 1].transform.y)
+	||(snake.conjuntoSerp[0].transform.x <= grid.sprites[0][0].transform.x
+	|| snake.conjuntoSerp[0].transform.x >= grid.sprites[0][numC - 1].transform.x && snake.conjuntoSerp[0].transform.y <= grid.sprites[0][0].transform.y
+	&& snake.conjuntoSerp[0].transform.y >= grid.sprites[0][numC - 1].transform.y)
+	||(snake.conjuntoSerp[0].transform.x >= grid.sprites[numR - 1][0].transform.x && snake.conjuntoSerp[0].transform.y >= grid.sprites[0][0].transform.y
+	&& snake.conjuntoSerp[0].transform.y <= grid.sprites[0][numC - 1].transform.y)
+	|| (snake.conjuntoSerp[0].transform.x >= grid.sprites[0][0].transform.x &&
+		snake.conjuntoSerp[0].transform.x <= grid.sprites[numR - 1][0].transform.x &&
+		snake.conjuntoSerp[0].transform.y <= grid.sprites[0][0].transform.y))
 	{
 	life -= 1;
 	if (life == 0)
-	snake.anim[0].transform.x = W.GetWidth() / 2;
-	snake.anim[0].transform.y = W.GetHeight() / 2;
+	snake.conjuntoSerp[0].transform.x = W.GetWidth() / 2;
+	snake.conjuntoSerp[0].transform.y = W.GetHeight() / 2;
 	snake.dir = 0;
-	snake.anim.erase(snake.anim.begin() + 3, snake.anim.end());
+	snake.conjuntoSerp.erase(snake.conjuntoSerp.begin() + 3, snake.conjuntoSerp.end());
 	//	SM.SetCurScene<GameOver>();
 	//Println("xoc");
 	}
@@ -101,16 +115,56 @@ void GameScene::CheckHit() {
 }
 
 void GameScene::Update(void) {
+
+	//std::cout << "VALOR XML DE MIERDA JODER " << Niveles::GetValue("Columns") << std::endl;
+
 	if (!hasStarted) {
-		grid.crearTabla(numR, numC);
+		numC = 5;
+		numR = 5;
+
+		numC *= Niveles::GetValue("Columns");
+		numR *= Niveles::GetValue("Columns");
+		grid.crearTabla(numC,numR);
+		cout << "TablaCol " << grid.numC << endl;
+		//manzana.InitialPos(grid);
+		//manzana.SetPos(grid);
 		//manzana.AumentarVector(1);
+		//ChangeManPos();
+		//manzana.SetPos(numC,numR);
+		manzana.laManzana.transform.x = W.GetWidth() / 2;
+		manzana.laManzana.transform.y = W.GetHeight() / 2;
+		tempT = &grid;
+		manzana.SetPos(tempT);
+
+		cout << "POSMANZANA_X" << unaManzana.transform.x<<endl;
+
+
+		snake.iPosX = 
+
+		hasStarted = true;
+
 	}
 	//manzana.InitialPos(grid);
 		CheckHit();
+		CheckManzana();
 		snake.Update();
+		ActualizarSnake();
+		
 }
+
+void GameScene::ActualizarSnake() {
+	snake.conjuntoSerp[0].transform.x = grid.sprites[snake.posX][0].transform.x;
+	snake.conjuntoSerp[0].transform.y = grid.sprites[0][snake.posY].transform.y;
+
+	snake.conjuntoSerp[snake.tamaño - 1].transform.x = grid.sprites[snake.prevPosX][0].transform.x;
+	snake.conjuntoSerp[snake.tamaño - 1].transform.y = grid.sprites[0][snake.prevPosY].transform.y;
+
+
+}
+
 void GameScene::Draw(void) {
 	fondo.Draw();
+
 //	for (int i = 0; i < apple.size() - 1; i++) {
 	//	apple[i].Draw();
 	//}
@@ -120,6 +174,8 @@ void GameScene::Draw(void) {
 		}
 	}*/
 	grid.Draw();
-	snake.Draw();
 	manzana.Draw();
+	snake.Draw();
+	
+	//unaManzana.Draw();
 }
