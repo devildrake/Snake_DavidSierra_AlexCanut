@@ -206,7 +206,7 @@ void GameScene::Update(void) {
 		
 		if (snake.dir != 0 && snake.hasMoved) {
 			ActualizarSnake();
-			snake.ChangeLast();
+			//snake.ChangeLast();
 			snake.hasMoved = false;
 			snake.isBlocked = false;
 		}
@@ -238,10 +238,12 @@ void GameScene::ActualizarSnake() {
 	snake.conjuntoSerp[0].transform.x = grid.sprites[snake.posX][0].transform.x;
 	snake.conjuntoSerp[0].transform.y = grid.sprites[0][snake.posY].transform.y;
 
-	
-	snake.conjuntoSerp[snake.tamaño - 1].transform.x = grid.sprites[snake.prevPosX][0].transform.x;
-	snake.conjuntoSerp[snake.tamaño - 1].transform.y = grid.sprites[0][snake.prevPosY].transform.y;
+	Sprite newNode;
+	newNode.objectID = ObjectID::S_09;
+	newNode.transform = grid.sprites[snake.prevPosX][snake.prevPosY].transform;
 
+	snake.conjuntoSerp.insert(snake.conjuntoSerp.begin()+1, newNode);
+	snake.conjuntoSerp.pop_back();
 	//cout << "Posicion Cabeza---> X:  " << snake.conjuntoSerp[0].transform.x << "Y:  " << snake.conjuntoSerp[0].transform.y << endl;
 	//cout << "Posicion Cola-----> X:  "<< snake.conjuntoSerp[snake.tamaño - 1].transform.x << "Y:  " << snake.conjuntoSerp[snake.tamaño - 1].transform.y << endl;
 }
@@ -265,7 +267,7 @@ void GameScene::Draw(void) {
 	//std::cout << "posAX: "<< posAX << "  posAY: " << posAY << endl;
 	//std::cout << "tranformX: " << grid.sprites[posAX][posAY].transform.x << "  transformY: " << grid.sprites[posAX][posAY].transform.y << endl;
 	//std::cout << "posX: " << snake.posX << " posY: " << snake.posY << endl;
-	std::cout << "transformX: " << grid.sprites[snake.posX][snake.posY].transform.x << " transformY: " << grid.sprites[snake.posX][snake.posY].transform.y << endl;
+	//std::cout << "transformX: " << grid.sprites[snake.posX][snake.posY].transform.x << " transformY: " << grid.sprites[snake.posX][snake.posY].transform.y << endl;
 
 	//unaManzana.Draw();
 }
