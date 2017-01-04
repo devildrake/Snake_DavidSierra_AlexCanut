@@ -154,14 +154,26 @@ void GameScene::Update(void) {
 	//	CheckHit();
 		CheckManzana();
 		snake.Update();
-		ActualizarSnake();
 		
+		if (snake.dir != 0) {
+			ActualizarSnake();
+			snake.ChangeLast();
+		}
 }
 
 void GameScene::SnakeSpawn() {
+
+	snake.posX = snake.iPosX;
+	snake.posY = snake.iPosY;
+
 	snake.conjuntoSerp[0].transform.x = grid.sprites[snake.iPosX][snake.iPosY].transform.x;
 	snake.conjuntoSerp[0].transform.y = grid.sprites[snake.iPosX][snake.iPosY].transform.y;
+	
+	snake.conjuntoSerp[1].transform.x = snake.conjuntoSerp[0].transform.x;
+	snake.conjuntoSerp[1].transform.y = grid.sprites[snake.iPosX][snake.iPosY-1].transform.y;
 
+	snake.conjuntoSerp[2].transform.x = snake.conjuntoSerp[0].transform.x;
+	snake.conjuntoSerp[2].transform.y = grid.sprites[snake.iPosX][snake.iPosY - 2].transform.y;
 
 	//snake.head.transform.x = grid.sprites[snake.iPosX][snake.iPosY].transform.x;
 	//snake.head.transform.y = grid.sprites[snake.iPosX][snake.iPosY].transform.y;
@@ -174,8 +186,10 @@ void GameScene::ActualizarSnake() {
 	snake.conjuntoSerp[0].transform.x = grid.sprites[snake.posX][0].transform.x;
 	snake.conjuntoSerp[0].transform.y = grid.sprites[0][snake.posY].transform.y;
 
+	
 	snake.conjuntoSerp[snake.tamaño - 1].transform.x = grid.sprites[snake.prevPosX][0].transform.x;
 	snake.conjuntoSerp[snake.tamaño - 1].transform.y = grid.sprites[0][snake.prevPosY].transform.y;
+
 
 
 }

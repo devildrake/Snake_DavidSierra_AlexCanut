@@ -22,10 +22,6 @@ Snake::Snake() {
 	timer = 1000000;
 	prevTime = TM.GetCurTime();
 	//anim.push_back(tail);
-
-	
-
-
 }
 void Snake::Push(){
 }
@@ -80,45 +76,73 @@ void Snake::Mov() {
 	}*/
 
 	if ((TM.GetCurTime() - prevTime) > timer) {
-		cout << "Move\n";
-		cout << "Resta:   " << TM.GetCurTime() - prevTime;
-
-		cout << "CURRENTIME:: " << TM.GetCurTime() << endl;
-
-		cout << "CURRENTIME:: " << TM.GetCurTime() << endl;
-
-
+		cout << "0:  X--> " << conjuntoSerp[0].transform.x << "  Y--> " << conjuntoSerp[0].transform.y << endl;
+		cout <<"1:  X--> "<< conjuntoSerp[1].transform.x <<"  Y--> "<< conjuntoSerp[1].transform.y<<endl;
+		cout << "2:  X--> " << conjuntoSerp[2].transform.x << "  Y--> " << conjuntoSerp[2].transform.y << endl;
+		
+		//cout << "Move\n";
+		//cout << "Resta:   " << TM.GetCurTime() - prevTime;
+		//cout << "CURRENTIME:: " << TM.GetCurTime() << endl;
+		//cout << "CURRENTIME:: " << TM.GetCurTime() << endl;
 		cout << timer << endl;
 		switch (dir) {
+	
+		case 0:
 			prevPosX = posX;
 			prevPosY = posY;
-		case 0:
 			break;
 		case 1: //IZQUIERDA?
-
-			posX -= 1;
+			prevPosX = posX;
+			prevPosY = posY;
+			posX += 1;
 			break;
 		case 2:
-			posX += 1;
+			prevPosX = posX;
+			prevPosY = posY;
+			posX -= 1;
 
 			break;
 		case 3:
+			prevPosX = posX;
+			prevPosY = posY;
 			posY -= 1;
 
 
 			break;
 		case 4:
+			prevPosX = posX;
+			prevPosY = posY;
 			posY += 1;
 			break;
 
 		}
 		prevTime = TM.GetCurTime();
-		cout << "PrevTIME::  " << prevTime << endl;
+		//cout << "PrevTIME::  " << prevTime << endl;
+		//cout << "posicion a cambiar::  " << posX << ", " << posY << endl;
+		//cout << "PrevPos::  " << prevPosX << ", " << prevPosY << endl;
+
 	}
+}
+
+void Snake::ChangeLast() {
+	
+	/*Sprite temp;
+	temp = conjuntoSerp[tamaño - 1];
+	conjuntoSerp[tamaño - 1] = conjuntoSerp[1];
+	conjuntoSerp[1] = temp;
+	*/
+	swap(conjuntoSerp[tamaño - 1], conjuntoSerp[1]);
+
+	/*cout << "Temp:  " << temp.transform.x << " , " << temp.transform.y<<endl;
+	cout << "Cola:  " << conjuntoSerp[tamaño - 1].transform.x << " , " << conjuntoSerp[tamaño - 1].transform.y << endl;
+	cout << "Cuello:  " << conjuntoSerp[1].transform.x << " , " << conjuntoSerp[1].transform.y << endl;
+	*/
+
 }
 
 void Snake::Update() {
 	Mov();
+
 }
 void Snake::Draw(void) {
 	for (int i = 0; i < conjuntoSerp.size(); i++) {

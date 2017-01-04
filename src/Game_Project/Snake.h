@@ -11,6 +11,7 @@ public:
 	void Update(void) ;
 	void Draw(void) ;
 	void Push();
+	void ChangeLast();
 	int dir = 0;
 	int iPosX;
 	int iPosY;
