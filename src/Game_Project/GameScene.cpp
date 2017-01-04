@@ -7,7 +7,7 @@ GameScene::GameScene() { //constructor, inicializamos la posicion de cada uno de
 	fondo = { { 0, 0, W.GetWidth(), W.GetHeight() }, ObjectID::S_07 };
 	life = 3;
 	hasStarted = 0;
-
+	c = 0;
 	GameScene::unaManzana.objectID = ObjectID::S_10;
 	/*numC = xmlValues[0]; //Aqui es donde supuestamente encuentra un valor de vector out of bounds
 	numR = xmlValues[0];*/
@@ -117,6 +117,8 @@ void GameScene::CheckHit() {
 void GameScene::Update(void) {
 
 	//std::cout << "VALOR XML DE MIERDA JODER " << Niveles::GetValue("Columns") << std::endl;
+	c++;
+	std::cout <<"Time nº" << TM.GetCurTime() << endl;
 
 	if (!hasStarted) {
 		numC = 5;
@@ -138,21 +140,37 @@ void GameScene::Update(void) {
 
 		cout << "POSMANZANA_X" << unaManzana.transform.x<<endl;
 
+		
+		snake.iPosX = round(numC / 2);
+		snake.iPosY = round(numR / 2);
 
-		snake.iPosX = 
+		
+		SnakeSpawn();
 
 		hasStarted = true;
 
 	}
 	//manzana.InitialPos(grid);
-		CheckHit();
+	//	CheckHit();
 		CheckManzana();
 		snake.Update();
 		ActualizarSnake();
 		
 }
 
+void GameScene::SnakeSpawn() {
+	snake.conjuntoSerp[0].transform.x = grid.sprites[snake.iPosX][snake.iPosY].transform.x;
+	snake.conjuntoSerp[0].transform.y = grid.sprites[snake.iPosX][snake.iPosY].transform.y;
+
+
+	//snake.head.transform.x = grid.sprites[snake.iPosX][snake.iPosY].transform.x;
+	//snake.head.transform.y = grid.sprites[snake.iPosX][snake.iPosY].transform.y;
+
+	cout << "PosicionInicialSerpiente = " << snake.conjuntoSerp[0].transform.x << ", " << snake.conjuntoSerp[0].transform.y << endl;
+}
+
 void GameScene::ActualizarSnake() {
+
 	snake.conjuntoSerp[0].transform.x = grid.sprites[snake.posX][0].transform.x;
 	snake.conjuntoSerp[0].transform.y = grid.sprites[0][snake.posY].transform.y;
 

@@ -19,7 +19,13 @@ Snake::Snake() {
 	conjuntoSerp.push_back(body);
 	conjuntoSerp.push_back(tail);
 	tamaño = 3;
+	timer = 1000000;
+	prevTime = TM.GetCurTime();
 	//anim.push_back(tail);
+
+	
+
+
 }
 void Snake::Push(){
 }
@@ -30,16 +36,16 @@ void Snake::Mov() {
 	else if (IM.IsKeyDown<KEY_BUTTON_UP>() && dir != 4) {
 		dir = 3;
 	}
-	else if (IM.IsKeyDown<KEY_BUTTON_RIGHT>() && dir !=2){
+	else if (IM.IsKeyDown<KEY_BUTTON_RIGHT>() && dir != 2) {
 		dir = 1;
 	}
-	else if (IM.IsKeyDown<KEY_BUTTON_LEFT>() && dir !=1) {
+	else if (IM.IsKeyDown<KEY_BUTTON_LEFT>() && dir != 1) {
 		dir = 2;
 	}
-	
+
 	/*switch (dir) {
 	case 0: break;
-	case 1:	
+	case 1:
 			for (int i = anim.size()-1; i > 0; i--) {
 				anim[i].transform.x = (anim[i-1].transform.x - anim[i-1].transform.w);
 				anim[i].transform.y = anim[i-1].transform.y;
@@ -52,7 +58,7 @@ void Snake::Mov() {
 			anim[i].transform.y = anim[i-1].transform.y;
 		}
 			anim[0].transform.x -= TM.GetDeltaTime()*200.f;
-		
+
 		break;
 	case 3:
 		for (int i = anim.size()-1; i > 0; i--) {
@@ -60,7 +66,7 @@ void Snake::Mov() {
 			anim[i].transform.y = anim[i-1].transform.y + anim[i-1].transform.h;
 		}
 			anim[0].transform.y -= TM.GetDeltaTime()*200.f;
-		
+
 		break;
 	case 4:
 		for (int i = anim.size()-1; i > 0; i--) {
@@ -69,33 +75,45 @@ void Snake::Mov() {
 
 		}
 			anim[0].transform.y += TM.GetDeltaTime()*200.f;
-		
+
 		break;
 	}*/
 
+	if ((TM.GetCurTime() - prevTime) > timer) {
+		cout << "Move\n";
+		cout << "Resta:   " << TM.GetCurTime() - prevTime;
 
-	switch (dir) {
-		prevPosX = posX;
-		prevPosY = posY;
-	case 0:
-		break;
-	case 1: //IZQUIERDA?
+		cout << "CURRENTIME:: " << TM.GetCurTime() << endl;
 
-		posX -= 1;
-		break;
-	case 2:
-		posX += 1;
-
-		break;
-	case 3:
-		posY -= 1;
+		cout << "CURRENTIME:: " << TM.GetCurTime() << endl;
 
 
-		break;
-	case 4:
-		posY += 1;
-		break;
-	
+		cout << timer << endl;
+		switch (dir) {
+			prevPosX = posX;
+			prevPosY = posY;
+		case 0:
+			break;
+		case 1: //IZQUIERDA?
+
+			posX -= 1;
+			break;
+		case 2:
+			posX += 1;
+
+			break;
+		case 3:
+			posY -= 1;
+
+
+			break;
+		case 4:
+			posY += 1;
+			break;
+
+		}
+		prevTime = TM.GetCurTime();
+		cout << "PrevTIME::  " << prevTime << endl;
 	}
 }
 

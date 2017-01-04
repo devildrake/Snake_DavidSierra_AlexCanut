@@ -12,12 +12,15 @@
 #include "InputManager.h"
 #include "Logger.h"
 #include "SceneManager.h"
+#include "TimeManager.h"
 #include <time.h>
 #include "XML.h"
+#include <math.h>
 
 class GameScene : public Scene
 {
 public: //declaracion de cabeceras
+	int c;
 
 	static int columnaFila;
 	explicit GameScene();
@@ -29,6 +32,8 @@ public: //declaracion de cabeceras
 	void CheckHit();
 	void GameScene::ActualizarSnake();
 	void CheckManzana();
+	void GameScene::SnakeSpawn();
+
 	int numapple;
 	bool hasStarted;
 	//Sprite **tabla;

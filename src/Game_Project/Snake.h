@@ -25,6 +25,9 @@ public:
 	int uPosX;
 	int uPosY;
 
+	Uint64 timer;
+	Uint64 prevTime;
+
 	Sprite head;
 	Sprite body;
 	Sprite tail;
