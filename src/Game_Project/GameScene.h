@@ -47,6 +47,11 @@ private:
 	Sprite fondo;
 	Sprite pared;
 	Snake snake;
-	Apple manzana;
+	Sprite manzana;
+	Sprite prueba;
 	int life;
+
+	int posAY;
+	int posAX;
+
 };

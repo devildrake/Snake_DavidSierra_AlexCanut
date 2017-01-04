@@ -20,6 +20,37 @@ Apple::Apple() {
 
 }
 
+posX = rand() % aTabla->numC;
+posY = rand() % aTabla->numR;
+
+std::cout << "numC  -- " << aTabla->numC;
+std::cout << "numR  -- " << aTabla->numR;
+
+if (posY == 0) {
+	posY++;
+}
+
+if (posX == 0) {
+	posX++;
+}
+if (posX == aTabla->numC) {
+	posX--;
+}
+if (posY == aTabla->numR) {
+	posY--;
+}
+
+if (posX > aTabla->numC) {
+	posX -= 4;
+}
+
+
+
+laManzana.transform.x = aTabla->sprites[posX][posY].transform.x;
+laManzana.transform.y = aTabla->sprites[posX][posY].transform.y;
+
+std::cout << "Manzana pos Tabla:  X  " << posX << "  Y:  " << posY << std::endl;
+
 
 
 Apple::~Apple() {

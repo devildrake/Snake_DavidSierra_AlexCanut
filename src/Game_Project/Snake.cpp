@@ -16,7 +16,7 @@ Snake::Snake() {
 	tail.transform = { body.transform.x- body.transform.w , body.transform.y , W.GetWidth() / 40, W.GetHeight() / 40 };
 	tail.objectID = ObjectID::S_09;
 
-
+	isAlive = true;
 
 
 
@@ -41,7 +41,7 @@ void Snake::AñadirTrozo() {
 }
 void Snake::Mov() {
 
-	if (!isBlocked) {
+	if (!isBlocked&&isAlive) {
 
 		if (IM.IsKeyDown<KEY_BUTTON_DOWN>() && dir != 3) {
 			isBlocked = true;
@@ -110,77 +110,82 @@ void Snake::Mov() {
 		//cout << "CURRENTIME:: " << TM.GetCurTime() << endl;
 		//cout << "CURRENTIME:: " << TM.GetCurTime() << endl;
 		//cout << timer << endl;
-		switch (dir) {
-	
-		case 0:
-			prevPosX = posX;
-			prevPosY = posY;
-			break;
-		case 1: //IZQUIERDA?
-			prevPosX = posX;
-			prevPosY = posY;
-			posX += 1;
-			hasMoved = true;
-			break;
-		case 2:
-			prevPosX = posX;
-			prevPosY = posY;
-			posX -= 1;
-			hasMoved = true;
+		if (isAlive) {
+			switch (dir) {
+
+			case 0:
+				prevPosX = posX;
+				prevPosY = posY;
+				break;
+			case 1: //IZQUIERDA?
+				prevPosX = posX;
+				prevPosY = posY;
+				posX += 1;
+				hasMoved = true;
+				break;
+			case 2:
+				prevPosX = posX;
+				prevPosY = posY;
+				posX -= 1;
+				hasMoved = true;
 
 
-			break;
-		case 3:
-			prevPosX = posX;
-			prevPosY = posY;
-			posY -= 1;
-			hasMoved = true;
+				break;
+			case 3:
+				prevPosX = posX;
+				prevPosY = posY;
+				posY -= 1;
+				hasMoved = true;
 
 
-			break;
-		case 4:
-			prevPosX = posX;
-			prevPosY = posY;
-			posY += 1;
-			hasMoved = true;
+				break;
+			case 4:
+				prevPosX = posX;
+				prevPosY = posY;
+				posY += 1;
+				hasMoved = true;
 
-			break;
+				break;
 
+			}
+			prevTime = TM.GetCurTime();
+			//cout << "PrevTIME::  " << prevTime << endl;
+			//cout << "posicion a cambiar::  " << posX << ", " << posY << endl;
+			//cout << "PrevPos::  " << prevPosX << ", " << prevPosY << endl;
 		}
-		prevTime = TM.GetCurTime();
-		//cout << "PrevTIME::  " << prevTime << endl;
-		//cout << "posicion a cambiar::  " << posX << ", " << posY << endl;
-		//cout << "PrevPos::  " << prevPosX << ", " << prevPosY << endl;
-
 	}
 }
 
 void Snake::ChangeLast() {
-	
-	Sprite temp;
-	temp = conjuntoSerp[tamaño - 1];
-	conjuntoSerp[tamaño - 1] = conjuntoSerp[tamaño-2];
-	conjuntoSerp[tamaño-2] = temp;
-	
-	//swap(conjuntoSerp[conjuntoSerp.size() - 1], conjuntoSerp[conjuntoSerp.size()-2]);
+	if (isAlive) {
+		Sprite temp;
+		temp = conjuntoSerp[tamaño - 1];
+		conjuntoSerp[tamaño - 1] = conjuntoSerp[tamaño - 2];
+		conjuntoSerp[tamaño - 2] = temp;
+
+		//swap(conjuntoSerp[conjuntoSerp.size() - 1], conjuntoSerp[conjuntoSerp.size()-2]);
 
 
 
 
-	cout << "Cola:  " << conjuntoSerp[tamaño - 1].transform.x << " , " << conjuntoSerp[tamaño - 1].transform.y << endl;
-	cout << "Cuello:  " << conjuntoSerp[1].transform.x << " , " << conjuntoSerp[1].transform.y << endl;
+		//cout << "Cola:  " << conjuntoSerp[tamaño - 1].transform.x << " , " << conjuntoSerp[tamaño - 1].transform.y << endl;
+		//cout << "Cuello:  " << conjuntoSerp[1].transform.x << " , " << conjuntoSerp[1].transform.y << endl;
 
-	/*cout << "Temp:  " << temp.transform.x << " , " << temp.transform.y<<endl;
-	*/
+		/*cout << "Temp:  " << temp.transform.x << " , " << temp.transform.y<<endl;
+		*/
 
+	}
 }
 
 void Snake::Update() {
+	if(isAlive)
 	Mov();
 
 }
 void Snake::Draw(void) {
-	for (int i = 0; i < conjuntoSerp.size(); i++) {
-		conjuntoSerp[i].Draw();
+	if (isAlive) {
+		for (int i = 0; i < conjuntoSerp.size(); i++) {
+			conjuntoSerp[i].Draw();
+		}
 	}
 }

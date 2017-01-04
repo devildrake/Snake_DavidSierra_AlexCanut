@@ -22,7 +22,6 @@
     <Xml Include="XMLFile.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Apple.cpp" />
     <ClCompile Include="Easy.cpp" />
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="Grid.cpp" />
@@ -35,7 +34,6 @@
     <ClCompile Include="Tabla.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Apple.h" />
     <ClInclude Include="Assert.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Easy.h" />

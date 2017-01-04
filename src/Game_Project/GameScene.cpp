@@ -10,7 +10,8 @@ GameScene::GameScene() { //constructor, inicializamos la posicion de cada uno de
 	hasStarted = 0;
 	c = 0;
 	GameScene::unaManzana.objectID = ObjectID::S_10;
-	
+	posAX = 0;
+	posAY = 0;
 	/*numC = xmlValues[0]; //Aqui es donde supuestamente encuentra un valor de vector out of bounds
 	numR = xmlValues[0];*/
 
@@ -40,9 +41,9 @@ GameScene::GameScene() { //constructor, inicializamos la posicion de cada uno de
 
 void GameScene::CheckManzana() {
 
-	if(snake.posX==manzana.posX+2&&snake.posY==manzana.posY){
+	if(snake.posX==posAX+2&&snake.posY==posAY){
 	
-	manzana.SetPos(tempT);
+	ChangeManPos();
 
 		snake.AñadirTrozo();
 
@@ -121,29 +122,70 @@ void GameScene::CheckHit() {
 
 }
 
+void GameScene::ChangeManPos() {
+	 posAX = 1+rand() % (numC-4);
+	 posAY = 1+rand() % (numR-4);
+
+
+
+	manzana.transform.x = grid.sprites[posAX][0].transform.x;
+	manzana.transform.y = grid.sprites[0][posAY].transform.y;
+
+	std::cout << "Manzana pos Tabla:  X  " << posAX << "  Y:  " << posAY << std::endl;
+	//std::cout << "Supuestas coordenadas de posAX:  " << grid.sprites[posAX][posAY].transform.x;
+
+
+
+}
+
 void GameScene::Update(void) {
 
 	//std::cout << "VALOR XML DE MIERDA JODER " << Niveles::GetValue("Columns") << std::endl;
 	c++;
 	//std::cout <<"Time nº" << TM.GetCurTime() << endl;
 
+
+
 	if (!hasStarted) {
+
+
+
 		numC = 5;
 		numR = 5;
 
 		numC *= Niveles::GetValue("Columns");
 		numR *= Niveles::GetValue("Columns");
+
+
+
 		grid.crearTabla(numC,numR);
+
+		manzana.objectID = ObjectID::S_10;
+		//manzana.transform = { manzana.transform.x - manzana.transform.w , manzana.transform.y , W.GetWidth() / 40, W.GetHeight() / 40 };
+		manzana.transform.w = 60;
+		manzana.transform.h = 40;
+
+		ChangeManPos();
+
+		prueba.transform = snake.conjuntoSerp[0].transform;
+		prueba.objectID = ObjectID::S_09;
+
+		prueba.transform.x = grid.sprites[numC - 1][numR - 1].transform.x;
+		prueba.transform.y = grid.sprites[numC - 1][numR - 1].transform.y;
+
+		
+
 		cout << "TablaCol " << grid.numC << endl;
 		//manzana.InitialPos(grid);
 		//manzana.SetPos(grid);
 		//manzana.AumentarVector(1);
 		//ChangeManPos();
 		//manzana.SetPos(numC,numR);
-		manzana.laManzana.transform.x = W.GetWidth() / 2;
-		manzana.laManzana.transform.y = W.GetHeight() / 2;
+		//manzana.transform.x = W.GetWidth() / 2;
+		//manzana.transform.y = W.GetHeight() / 2;
 		tempT = &grid;
-		manzana.SetPos(tempT);
+		
+
 
 		cout << "POSMANZANA_X" << unaManzana.transform.x<<endl;
 
@@ -218,6 +260,12 @@ void GameScene::Draw(void) {
 	grid.Draw();
 	manzana.Draw();
 	snake.Draw();
-	
+	prueba.Draw();
+
+	//std::cout << "posAX: "<< posAX << "  posAY: " << posAY << endl;
+	//std::cout << "tranformX: " << grid.sprites[posAX][posAY].transform.x << "  transformY: " << grid.sprites[posAX][posAY].transform.y << endl;
+	//std::cout << "posX: " << snake.posX << " posY: " << snake.posY << endl;
+	std::cout << "transformX: " << grid.sprites[snake.posX][snake.posY].transform.x << " transformY: " << grid.sprites[snake.posX][snake.posY].transform.y << endl;
+
 	//unaManzana.Draw();
 }

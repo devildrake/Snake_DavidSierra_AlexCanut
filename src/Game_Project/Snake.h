@@ -29,6 +29,7 @@ public:
 	//haciendo bypass a la prohibicion de cambio de rumbo de izquierda a derecha
 	//sin pasar por arriba o abajo
 
+	bool isAlive;
 
 	bool hasMoved; //Flag para que el GameScene.cpp sepa cuando la serpiente se ha movido
 
