@@ -36,7 +36,7 @@ void Apple::Update() {
 	//laManzana.transform = aTabla.sprites[posX][posY].transform;
 }
 
-void Apple::InitialPos(Tabla aTabla) {
+/*void Apple::InitialPos(Tabla aTabla) {
 	if (!initialized) {
 		posX = rand() % aTabla.numC;
 		posY = rand() % aTabla.numR;
@@ -45,8 +45,9 @@ void Apple::InitialPos(Tabla aTabla) {
 
 		//SetPos(aTabla);//, posX, posY);
 	}
-}
+}*/
 
+/*
 void Apple::SetPos(Tabla aTabla, int i, int j) {
 	//	posX = rand() % laScene.numC;
 	//	posY = rand() % laScene.numR;
@@ -55,15 +56,41 @@ void Apple::SetPos(Tabla aTabla, int i, int j) {
 	//laManzana.transform = aTabla.sprites[posX][posY].transform;
 	//cout << "Setting manzanaPos to" << laManzana.transform.x <<","<< laManzana.transform.y <<endl;
 
-}
+}*/
 
 void Apple::SetPos(Tabla* aTabla) {
 
 	posX = rand() % aTabla->numC;
 	posY = rand() % aTabla->numR;
 
+	std::cout << "numC  -- " << aTabla->numC;
+	std::cout << "numR  -- " << aTabla->numR;
+
+	if (posY == 0) {
+		posY++;
+	}
+
+	if (posX == 0) {
+		posX++;
+	}
+	if (posX == aTabla->numC) {
+		posX--;
+	}
+	if (posY == aTabla->numR) {
+		posY--;
+	}
+
+	if (posX > aTabla->numC) {
+		posX -= 4;
+	}
+
+
+
 	laManzana.transform.x = aTabla->sprites[posX][posY].transform.x;
 	laManzana.transform.y = aTabla->sprites[posX][posY].transform.y;
+
+	std::cout <<"Manzana pos Tabla:  X  "<< posX <<"  Y:  "<< posY << std::endl;
+
 
 	//std::cout <<"JODER "<< aTabla->sprites[29][29].transform.x << std::endl;
 

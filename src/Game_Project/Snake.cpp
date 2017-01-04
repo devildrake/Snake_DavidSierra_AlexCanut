@@ -15,30 +15,53 @@ Snake::Snake() {
 	body.objectID = ObjectID::S_09;
 	tail.transform = { body.transform.x- body.transform.w , body.transform.y , W.GetWidth() / 40, W.GetHeight() / 40 };
 	tail.objectID = ObjectID::S_09;
+
+
+
+
+
 	conjuntoSerp.push_back(head);
 	conjuntoSerp.push_back(body);
 	conjuntoSerp.push_back(tail);
+
 	tamaño = 3;
 	timer = 1000000;
 	prevTime = TM.GetCurTime();
+	hasMoved = false;
+	isBlocked = false;
+	srand(time(NULL));
 	//anim.push_back(tail);
 }
-void Snake::Push(){
+void Snake::AñadirTrozo() {
+	Sprite aAñadir;
+	aAñadir.objectID = ObjectID::S_09;
+	aAñadir.transform = conjuntoSerp[tamaño - 1].transform;
+	conjuntoSerp.push_back(aAñadir);
+	tamaño++;
 }
 void Snake::Mov() {
-	if (IM.IsKeyDown<KEY_BUTTON_DOWN>() && dir != 3) {
-		dir = 4;
-	}
-	else if (IM.IsKeyDown<KEY_BUTTON_UP>() && dir != 4) {
-		dir = 3;
-	}
-	else if (IM.IsKeyDown<KEY_BUTTON_RIGHT>() && dir != 2) {
-		dir = 1;
-	}
-	else if (IM.IsKeyDown<KEY_BUTTON_LEFT>() && dir != 1) {
-		dir = 2;
-	}
 
+	if (!isBlocked) {
+
+		if (IM.IsKeyDown<KEY_BUTTON_DOWN>() && dir != 3) {
+			isBlocked = true;
+			dir = 4;
+		}
+		else if (IM.IsKeyDown<KEY_BUTTON_UP>() && dir != 4) {
+			isBlocked = true;
+			dir = 3;
+		}
+		else if (IM.IsKeyDown<KEY_BUTTON_RIGHT>() && dir != 2) {
+			isBlocked = true;
+			dir = 1;
+		}
+		else if (IM.IsKeyDown<KEY_BUTTON_LEFT>() && dir != 1) {
+			isBlocked = true;
+			dir = 2;
+		}
+
+		
+	}
 	/*switch (dir) {
 	case 0: break;
 	case 1:
@@ -76,15 +99,17 @@ void Snake::Mov() {
 	}*/
 
 	if ((TM.GetCurTime() - prevTime) > timer) {
-		cout << "0:  X--> " << conjuntoSerp[0].transform.x << "  Y--> " << conjuntoSerp[0].transform.y << endl;
-		cout <<"1:  X--> "<< conjuntoSerp[1].transform.x <<"  Y--> "<< conjuntoSerp[1].transform.y<<endl;
-		cout << "2:  X--> " << conjuntoSerp[2].transform.x << "  Y--> " << conjuntoSerp[2].transform.y << endl;
+		//cout << "0:  X--> " << conjuntoSerp[0].transform.x << "  Y--> " << conjuntoSerp[0].transform.y << endl;
+		//cout <<"1:  X--> "<< conjuntoSerp[1].transform.x <<"  Y--> "<< conjuntoSerp[1].transform.y<<endl;
+		//cout << "2:  X--> " << conjuntoSerp[2].transform.x << "  Y--> " << conjuntoSerp[2].transform.y << endl;
 		
+		cout << "Posicion Tabla Snake:  X:   " << posX << "  Y:  " << posY << endl;
+
 		//cout << "Move\n";
 		//cout << "Resta:   " << TM.GetCurTime() - prevTime;
 		//cout << "CURRENTIME:: " << TM.GetCurTime() << endl;
 		//cout << "CURRENTIME:: " << TM.GetCurTime() << endl;
-		cout << timer << endl;
+		//cout << timer << endl;
 		switch (dir) {
 	
 		case 0:
@@ -95,17 +120,21 @@ void Snake::Mov() {
 			prevPosX = posX;
 			prevPosY = posY;
 			posX += 1;
+			hasMoved = true;
 			break;
 		case 2:
 			prevPosX = posX;
 			prevPosY = posY;
 			posX -= 1;
+			hasMoved = true;
+
 
 			break;
 		case 3:
 			prevPosX = posX;
 			prevPosY = posY;
 			posY -= 1;
+			hasMoved = true;
 
 
 			break;
@@ -113,6 +142,8 @@ void Snake::Mov() {
 			prevPosX = posX;
 			prevPosY = posY;
 			posY += 1;
+			hasMoved = true;
+
 			break;
 
 		}
@@ -126,16 +157,20 @@ void Snake::Mov() {
 
 void Snake::ChangeLast() {
 	
-	/*Sprite temp;
+	Sprite temp;
 	temp = conjuntoSerp[tamaño - 1];
-	conjuntoSerp[tamaño - 1] = conjuntoSerp[1];
-	conjuntoSerp[1] = temp;
-	*/
-	swap(conjuntoSerp[tamaño - 1], conjuntoSerp[1]);
+	conjuntoSerp[tamaño - 1] = conjuntoSerp[tamaño-2];
+	conjuntoSerp[tamaño-2] = temp;
+	
+	//swap(conjuntoSerp[conjuntoSerp.size() - 1], conjuntoSerp[conjuntoSerp.size()-2]);
 
-	/*cout << "Temp:  " << temp.transform.x << " , " << temp.transform.y<<endl;
+
+
+
 	cout << "Cola:  " << conjuntoSerp[tamaño - 1].transform.x << " , " << conjuntoSerp[tamaño - 1].transform.y << endl;
 	cout << "Cuello:  " << conjuntoSerp[1].transform.x << " , " << conjuntoSerp[1].transform.y << endl;
+
+	/*cout << "Temp:  " << temp.transform.x << " , " << temp.transform.y<<endl;
 	*/
 
 }

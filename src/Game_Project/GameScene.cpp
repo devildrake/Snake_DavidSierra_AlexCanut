@@ -1,5 +1,6 @@
 #include "GameScene.h"
 
+
 using namespace Logger;
   
 GameScene::GameScene() { //constructor, inicializamos la posicion de cada uno de los sprites mencionados y le asignamos su imagen
@@ -9,6 +10,7 @@ GameScene::GameScene() { //constructor, inicializamos la posicion de cada uno de
 	hasStarted = 0;
 	c = 0;
 	GameScene::unaManzana.objectID = ObjectID::S_10;
+	
 	/*numC = xmlValues[0]; //Aqui es donde supuestamente encuentra un valor de vector out of bounds
 	numR = xmlValues[0];*/
 
@@ -37,8 +39,13 @@ GameScene::GameScene() { //constructor, inicializamos la posicion de cada uno de
 }
 
 void GameScene::CheckManzana() {
-	if (snake.head.transform.x == manzana.laManzana.transform.x+manzana.laManzana.transform.w) {
-		std::cout << "MISMA X JODER SI SISISISISI  " << std::endl;
+
+	if(snake.posX==manzana.posX+2&&snake.posY==manzana.posY){
+	
+	manzana.SetPos(tempT);
+
+		snake.AñadirTrozo();
+
 	}
 }
 
@@ -118,7 +125,7 @@ void GameScene::Update(void) {
 
 	//std::cout << "VALOR XML DE MIERDA JODER " << Niveles::GetValue("Columns") << std::endl;
 	c++;
-	std::cout <<"Time nº" << TM.GetCurTime() << endl;
+	//std::cout <<"Time nº" << TM.GetCurTime() << endl;
 
 	if (!hasStarted) {
 		numC = 5;
@@ -155,10 +162,13 @@ void GameScene::Update(void) {
 		CheckManzana();
 		snake.Update();
 		
-		if (snake.dir != 0) {
+		if (snake.dir != 0 && snake.hasMoved) {
 			ActualizarSnake();
 			snake.ChangeLast();
+			snake.hasMoved = false;
+			snake.isBlocked = false;
 		}
+
 }
 
 void GameScene::SnakeSpawn() {
@@ -190,8 +200,8 @@ void GameScene::ActualizarSnake() {
 	snake.conjuntoSerp[snake.tamaño - 1].transform.x = grid.sprites[snake.prevPosX][0].transform.x;
 	snake.conjuntoSerp[snake.tamaño - 1].transform.y = grid.sprites[0][snake.prevPosY].transform.y;
 
-
-
+	//cout << "Posicion Cabeza---> X:  " << snake.conjuntoSerp[0].transform.x << "Y:  " << snake.conjuntoSerp[0].transform.y << endl;
+	//cout << "Posicion Cola-----> X:  "<< snake.conjuntoSerp[snake.tamaño - 1].transform.x << "Y:  " << snake.conjuntoSerp[snake.tamaño - 1].transform.y << endl;
 }
 
 void GameScene::Draw(void) {
